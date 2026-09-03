@@ -28,5 +28,38 @@
 - A coluna `century` será utilizada para livros publicados antes do ano de 2000
 - Não será utilizada a quantidade de páginas devido à possível inconsistência das edições
 
+## 03/09/2026
+
+### O que fiz? 🤔
+
+- Continuei a exploração do ficheiro `books.csv` utilizadno pandas
+- Criei uma contagem dos livros por país através de `value_counts()`
+- Guardei o resultado numa variável: `country_counts = books['country'].value_counts()`
+- Comecei a utilizar o Ploty Express para criar visualizações dos dados
+- Criei um gráfico de barras com o número de livros lidos por país
+- Aprendi a utilizar um objeto `fig` para guardar o gráfico
+- Personalizei o gráfico com `fig.update_layout()`, adicionando:
+    - título;
+    - nome do eixo X;
+    - nome do eixo Y.
+- Adicionei os valotes numéricos às barras através de `text=country_counts.values`
+- Aprendi a controlar a posição desses valores com `textposition`, utilizando `'inside'` e `'outside'`
+
+### O que aprendi 🗒️🤓
+
+Plotly
+- `px.bar()` permite criar gráficos de barras
+- `fig` é a variável que guarda o gráfico criado
+- `fig.show()` apresenta o gráfico no navegador
+- `fig.update_layout()` permite alterar elementos do layout do gráfico
+- `fig.update_traces()` permite alterar características das próprias barras
+- `text` permite apresentar valores associados às barras
+- `textposition` permite definir onde esses valores aparecem
+
+Pandas
+- `value_counts()` permite contar quantas vezes cada valor aparece numa coluna
+- O resultado de `value_counts()` é ordenado, por defeito, do valor mais frequente para o menos frequente
+- `ascending=False` indica uma ordenação descendente, ou seja, do maior para o menor
+
 
 
