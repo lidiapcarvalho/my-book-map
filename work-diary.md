@@ -61,5 +61,22 @@ Pandas
 - O resultado de `value_counts()` é ordenado, por defeito, do valor mais frequente para o menos frequente
 - `ascending=False` indica uma ordenação descendente, ou seja, do maior para o menor
 
+## 04/09/2026
 
+### O que fiz? 🤔
+
+- Organização do `main.py`, separando a exploração dos dados, filtros, estatísticas, gráfico e mapa
+- Resolvi o problema do `fig.show()`, que estava a abrir uma página local com `ERR_CONNECTION_REFUSED`
+- Passei a guardar os gráficos como HTML com `fig.write_html(..., auto_open=True)`
+- O gráfico de livros lidos por país ficou funcional
+- Preparei os dados dos países com códigos ISO-3
+- Experimentei um **tile choropleth map** com `px.choropleth_map`
+- O mapa aparecia, mas os países não estavam a ser pintados
+- Investiguei o GeoJSON e descobri que a propriedade dos códigos ISO-3 se chama `ISO3166-1-Alpha-3`, e não `ISO_A3`
+- Corrigi o `featureidkey` para `properties.ISO3166-1-Alpha-3`
+- O mapa passou finalmente a apresentar os países com a escala de cores correspondente ao número de linhas
+
+### O que aprendi 🗒️🤓
+
+- Hoje fiquei também com uma melhor compreensão de como os dados do meu CSV são associados às geometrias do mapa através dos códigos ISO
 
