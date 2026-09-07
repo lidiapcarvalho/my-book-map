@@ -2,7 +2,7 @@ import requests
 import plotly.express as px
 
 
-def map(books, country_counts, latest_year):
+def create_map(books, country_counts, latest_year):
 
     geojson_url = "https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson"
     geojson = requests.get(geojson_url).json()
@@ -32,7 +32,6 @@ def map(books, country_counts, latest_year):
 
     map_data['iso_alpha'] = map_data['country'].map(
         country_codes)  # Mapeia os países para os seus códigos ISO
-    print(map_data)
 
     # Mapa
     fig_map = px.choropleth_map(
