@@ -80,3 +80,23 @@ Pandas
 
 - Hoje fiquei também com uma melhor compreensão de como os dados do meu CSV são associados às geometrias do mapa através dos códigos ISO
 
+## 07/09/2026
+
+### O que fiz? 🤔
+
+- Restauro dos ficheiros `map.py` e `stats.py` que desapareceram após alterar a designação dos commit's para o padrão que queria.
+
+## 08/09/2026
+
+### O que fiz? 🤔
+
+- Adicionei ao mapa informações adicionais no `hover`, incluindo:
+    - número de livros;
+    - último ano de leitura;
+    - percentagem de livros lidos por país.
+- Melhorei a identificação da legenda, passando a indicar "Número de livros"
+- Comecei a implementar um dropdown para permitir visualizar os livros por ano
+- Criei uma tabela com o número de livros por país e por ano utilizado `groupby()`
+- Separei os dados correspondentes a 2022 e criei um mapa específico para esse ano
+- Testei o mapa de 2022 e confirmei que apresenta corretamente os três países onde li livros nesse ano: índia, Polónia e Estados Unidos
+- O próximo passo será terminar o dropdown, permitindo alternar entre "Todos", 2022 e 2025.
