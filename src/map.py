@@ -48,8 +48,7 @@ def create_map(books, country_counts, latest_year):
         ]
 
     map_2022 = map_data_by_year[2022]
-
-    print(map_2022)
+    map_2025 = map_data_by_year[2025]
 
     fig_2022 = px.choropleth_map(
         map_2022,
@@ -61,10 +60,21 @@ def create_map(books, country_counts, latest_year):
         map_style='open-street-map',
         zoom=1,
         center={"lat": 25, "lon": 10},
-        title="Livros lidos em 2022"
+        title="My Book's World Travel 🌍"
     )
 
-    fig_2022.write_html('mapa_2022.html', auto_open=True)
+    fig_2025 = px.choropleth_map(
+        map_2025,
+        geojson=geojson,
+        locations=map_2025['country'].map(country_codes),
+        featureidkey='properties.ISO3166-1-Alpha-3',
+        color='books',
+        hover_name='country',
+        map_style='open-street-map',
+        zoom=1,
+        center={"lat": 25, "lon": 10},
+        title="My Book's World Travel 🌍"
+    )
 
     map_data['percentage'] = (map_data['books'] / len(books)) * 100
 
@@ -100,6 +110,46 @@ def create_map(books, country_counts, latest_year):
     fig_map.update_layout(
         title="My Book's World Travel 🌍",
         title_x=0.5,
+    )
+
+    # Adiciona os mapas de 2022 e 2025 à figura principal
+    fig_map.add_traces(fig_2022.data)
+    fig_map.add_traces(fig_2025.data)
+
+    # Mostra apenas o mapa "Todos" inicialmente
+    for trace in fig_map.data[1:]:
+        trace.visible = False
+
+    fig_map.update_layout(
+        updatemenus=[
+            {
+                'buttons': [
+                    {
+                        'label': 'All',
+                        'method': 'update',
+                        'args': [
+                            {'visible': [True, False, False]}
+                        ]
+                    },
+                    {
+                        'label': '2022',
+                        'method': 'update',
+                        'args': [
+                            {'visible': [False, True, False]}
+                        ]
+                    },
+                    {
+                        'label': '2025',
+                        'method': 'update',
+                        'args': [
+                            {'visible': [False, False, True]}
+                        ]
+                    }
+                ],
+                'direction': 'down',
+                'showactive': True
+            }
+        ]
     )
 
     fig_map.write_html('mapa.html', auto_open=True)
