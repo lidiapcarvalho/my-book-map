@@ -23,6 +23,13 @@ def create_map(books, country_counts, latest_year):
         'United States': 'USA',
     }
 
+    year_colors = {
+        2022: 'pink',
+        2025: 'red',
+        2026: 'blue',
+        2027: 'green'
+    }
+
     # Reseta o índice para que possamos ter uma coluna com os países
     map_data = country_counts.reset_index()
     map_data.columns = ['country', 'books']
@@ -55,7 +62,7 @@ def create_map(books, country_counts, latest_year):
         geojson=geojson,
         locations=map_2022['country'].map(country_codes),
         featureidkey='properties.ISO3166-1-Alpha-3',
-        color='books',
+        color_discrete_sequence=[year_colors[2022]],
         hover_name='country',
         map_style='open-street-map',
         zoom=1,
@@ -68,7 +75,7 @@ def create_map(books, country_counts, latest_year):
         geojson=geojson,
         locations=map_2025['country'].map(country_codes),
         featureidkey='properties.ISO3166-1-Alpha-3',
-        color='books',
+        color_discrete_sequence=[year_colors[2025]],
         hover_name='country',
         map_style='open-street-map',
         zoom=1,
@@ -95,7 +102,7 @@ def create_map(books, country_counts, latest_year):
             'percentage': ':.1f',
             'iso_alpha': False
         },
-        color_continuous_scale='Blues',
+        color_continuous_scale='Sunset',
         labels={'books': 'Número de livros'},
         map_style='open-street-map',
         zoom=1,
@@ -112,13 +119,15 @@ def create_map(books, country_counts, latest_year):
         title_x=0.5,
     )
 
+    fig_map.data[0].visible = False
+
     # Adiciona os mapas de 2022 e 2025 à figura principal
     fig_map.add_traces(fig_2022.data)
     fig_map.add_traces(fig_2025.data)
 
     # Mostra apenas o mapa "Todos" inicialmente
-    for trace in fig_map.data[1:]:
-        trace.visible = False
+    # for trace in fig_map.data[1:]:
+    # trace.visible = False
 
     fig_map.update_layout(
         updatemenus=[
