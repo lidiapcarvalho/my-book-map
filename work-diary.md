@@ -100,3 +100,44 @@ Pandas
 - Separei os dados correspondentes a 2022 e criei um mapa específico para esse ano
 - Testei o mapa de 2022 e confirmei que apresenta corretamente os três países onde li livros nesse ano: índia, Polónia e Estados Unidos
 - O próximo passo será terminar o dropdown, permitindo alternar entre "Todos", 2022 e 2025.
+
+## 10/09/2026
+
+### O que fiz? 🤔
+
+- Continuei a implementação das cores associadas aos diferentes anos de leitura no mapa.
+- Definir cores específicas para cada ano:
+    - 2022 - rosa
+    - 2025 - vermelho
+    - 2026 - azul
+    - 2027 - verde
+- Alterei o mapa de 2022 e de 2025 para utilizarem as suas cores.
+- Testei as alterações e confirmei que as cores são apresentadas corretamente nos mapas individuais.
+- Adicionei os mapas de 2022 e 2025 ao mapa principal para permitir apresentar as duas cores em simultâneo na opção "All".
+- Escondi o mapa anterior que utilizava uma escala de cores contínua.
+- Testei o mapa e confirmei que, inicialmente, a opão "All" aparesenta os livros de 2022 a rosa e os de 2025 a vermelho.
+- Ficou pendente corrigir o dropdown, uma vez que ao selecionar novamente 2022 ou 2025 ainda é utilizada a configuração anterior com a escala de cores.
+
+## 11/09/2026
+
+### O que fiz? 🤔
+
+- Corrigi o dropdown do mapa para que as opções "All", 2022 e 2025 utilizem corretamente as cores definidas para cada ano.
+- Ajustei a visibilidade dos diferentes traces, garantindo que o mapa com a escala de cores anterior não volta a aparecer ao alterar a opção do dropdown.
+- Confirmei que a opção "All" apresenta simultaneamente:
+    - livros de 2022 a rosa;
+    - livros de 2025 a vermelho.
+- Identifiquei um aviso de bloqueio dos servidores de tiles do OpenStreetMap ao utilizar open-street-map como mapa de fundo.
+- Explorei a utilização de estilos de mapa baseados em MapLibre.
+- Testei diferentes estilos predefinidos, incluindo carto-positron, carto-voyager, basic e dark.
+- Comparei visualmente os estilos tendo em conta a informação apresentada no mapa, os contornos dos países e o destaque das cores dos anos de leitura.
+- Decidi utilizar temporariamente o estilo basic.
+
+### Decisões 🧐
+
+- O estilo basic será utilizado na versão atual do projeto por apresentar um bom equilíbrio entre informação e simplicidade.
+- No futuro, poderá ser explorada a possibilidade de criar uma versão com um estilo dark para o mapa.
+
+## 12/09/2026
+
+### O que fiz? 🤔

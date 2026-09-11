@@ -104,7 +104,7 @@ def create_map(books, country_counts, latest_year):
         },
         color_continuous_scale='Sunset',
         labels={'books': 'Número de livros'},
-        map_style='open-street-map',
+        map_style='basic',
         zoom=1,
         center={"lat": 25, "lon": 10},
         title="My Book's World Travel 🌍"
@@ -137,7 +137,7 @@ def create_map(books, country_counts, latest_year):
                         'label': 'All',
                         'method': 'update',
                         'args': [
-                            {'visible': [True, False, False]}
+                            {'visible': [False, True, True]}
                         ]
                     },
                     {
