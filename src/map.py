@@ -54,107 +54,115 @@ def create_map(books, country_counts, latest_year):
             year_country_counts['year_read'] == year
         ]
 
-    map_2022 = map_data_by_year[2022]
-    map_2025 = map_data_by_year[2025]
+    # Criar os mapas individuais de cada ano
+    year_figures = {}
 
-    fig_2022 = px.choropleth_map(
-        map_2022,
-        geojson=geojson,
-        locations=map_2022['country'].map(country_codes),
-        featureidkey='properties.ISO3166-1-Alpha-3',
-        color_discrete_sequence=[year_colors[2022]],
-        hover_name='country',
-        map_style='open-street-map',
-        zoom=1,
-        center={"lat": 25, "lon": 10},
-        title="My Book's World Travel 🌍"
-    )
+    for year in years:
+        year_data = map_data_by_year[year]
 
-    fig_2025 = px.choropleth_map(
-        map_2025,
-        geojson=geojson,
-        locations=map_2025['country'].map(country_codes),
-        featureidkey='properties.ISO3166-1-Alpha-3',
-        color_discrete_sequence=[year_colors[2025]],
-        hover_name='country',
-        map_style='open-street-map',
-        zoom=1,
-        center={"lat": 25, "lon": 10},
-        title="My Book's World Travel 🌍"
-    )
+        year_figures[year] = px.choropleth_map(
+            year_data,
+            geojson=geojson,
+            locations=year_data['country'].map(country_codes),
+            featureidkey='properties.ISO3166-1-Alpha-3',
+            color_discrete_sequence=[year_colors[year]],
+            hover_name='country',
+            map_style='basic',
+            zoom=1,
+            center={"lat": 25, "lon": 10},
+            title="My Book's World Travel 🌍"
+        )
 
     map_data['percentage'] = (map_data['books'] / len(books)) * 100
 
     map_data['iso_alpha'] = map_data['country'].map(
         country_codes)  # Mapeia os países para os seus códigos ISO
 
-    # Mapa
+# ___ Mapa "All"_____________________________________________________
+
+    first_year = years[0]
+
     fig_map = px.choropleth_map(
-        map_data,
+        map_data_by_year[first_year],
         geojson=geojson,
-        locations='iso_alpha',
-        featureidkey='properties.ISO3166-1-Alpha-3',
-        color='books',
+        locations=map_data_by_year[first_year]['country'].map(country_codes),
+        featureidkey='preporties.ISO3166-1-Alpha-3',
+        color_discrete_sequence=[year_colors[first_year]],
         hover_name='country',
-        hover_data={
-            'books': True,
-            'year_read': True,
-            'percentage': ':.1f',
-            'iso_alpha': False
-        },
-        color_continuous_scale='Sunset',
-        labels={'books': 'Número de livros'},
         map_style='basic',
         zoom=1,
         center={"lat": 25, "lon": 10},
         title="My Book's World Travel 🌍"
     )
 
-    fig_map.update_geos(
-        projection_type='natural earth',
-    )
+    # Remove o primeiro trace, proque vamos adicionar todos os anos
+    fig_map.data = ()
+
+    # Adicionar os mapas de todos os anos
+    for year in years:
+        fig_map.add_traces(year_figures[year].data)
+
+# ___ Dropdown______________________________________________________
+
+    buttons = []
+
+    # Quantos traces pertencem a cada ano?
+    year_trace_ranges = {}
+    current_position = 0
+
+    for year in years:
+        number_of_traces = len(year_figures[year].data)
+
+        year_trace_ranges[year] = range(
+            current_position,
+            current_position + number_of_traces
+        )
+
+        current_position += number_of_traces
+
+    # ALL
+
+    all_visible = [True] * len(fig_map.data)
+
+    buttons.append({
+        'label': 'All',
+        'method': 'update',
+        'args': [
+            {
+                'visible': all_visible
+            }
+        ]
+    })
+
+    # CADA ANO
+
+    for year in years:
+
+        visible = [False] * len(fig_map.data)
+
+        for trace_index in year_trace_ranges[year]:
+            visible[trace_index] = True
+
+        buttons.append({
+            'label': str(year),
+            'method': 'update',
+            'args': [
+                {
+                    'visible': visible
+                }
+            ]
+        })
+
+    # Mostra inicialmente todos os anos
+    for trace in fig_map.data:
+        trace.visible = True
 
     fig_map.update_layout(
         title="My Book's World Travel 🌍",
         title_x=0.5,
-    )
-
-    fig_map.data[0].visible = False
-
-    # Adiciona os mapas de 2022 e 2025 à figura principal
-    fig_map.add_traces(fig_2022.data)
-    fig_map.add_traces(fig_2025.data)
-
-    # Mostra apenas o mapa "Todos" inicialmente
-    # for trace in fig_map.data[1:]:
-    # trace.visible = False
-
-    fig_map.update_layout(
         updatemenus=[
             {
-                'buttons': [
-                    {
-                        'label': 'All',
-                        'method': 'update',
-                        'args': [
-                            {'visible': [False, True, True]}
-                        ]
-                    },
-                    {
-                        'label': '2022',
-                        'method': 'update',
-                        'args': [
-                            {'visible': [False, True, False]}
-                        ]
-                    },
-                    {
-                        'label': '2025',
-                        'method': 'update',
-                        'args': [
-                            {'visible': [False, False, True]}
-                        ]
-                    }
-                ],
+                'buttons': buttons,
                 'direction': 'down',
                 'showactive': True
             }
