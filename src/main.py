@@ -14,4 +14,4 @@ books = pd.read_csv('data/books.csv')
 
 country_counts, latest_year = show_statistics(books)
 
-create_map(books, country_counts, latest_year)
+create_map(books)

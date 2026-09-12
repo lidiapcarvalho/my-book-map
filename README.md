@@ -11,4 +11,4 @@ The map shows the countries represented in my reading data and allows the books 
 
 ## Data Source
 
-The book  data was organized from [My Maratona App Profile](https://maratona.social/@lidialecle).
+The book data was organized from [My Maratona App Profile](https://maratona.social/@lidialecle).

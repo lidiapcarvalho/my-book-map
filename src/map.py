@@ -2,7 +2,7 @@ import requests
 import plotly.express as px
 
 
-def create_map(books, country_counts, latest_year):
+def create_map(books):
 
     geojson_url = "https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson"
     geojson = requests.get(geojson_url).json()
@@ -30,13 +30,6 @@ def create_map(books, country_counts, latest_year):
         2027: 'green'
     }
 
-    # Reseta o índice para que possamos ter uma coluna com os países
-    map_data = country_counts.reset_index()
-    map_data.columns = ['country', 'books']
-
-    # Junta os dados do último ano lido
-    map_data = map_data.merge(latest_year, on='country')
-
     year_country_counts = (
         books.groupby(['year_read', 'country'])
         .size()
@@ -44,8 +37,6 @@ def create_map(books, country_counts, latest_year):
     )
 
     years = sorted(books['year_read'].unique())
-
-    dropdown_options = ['Todos'] + years
 
     map_data_by_year = {}
 
@@ -67,16 +58,15 @@ def create_map(books, country_counts, latest_year):
             featureidkey='properties.ISO3166-1-Alpha-3',
             color_discrete_sequence=[year_colors[year]],
             hover_name='country',
+            hover_data={
+                'books': True
+            },
+            labels={'books': 'Número de livros'},
             map_style='basic',
             zoom=1,
             center={"lat": 25, "lon": 10},
             title="My Book's World Travel 🌍"
         )
-
-    map_data['percentage'] = (map_data['books'] / len(books)) * 100
-
-    map_data['iso_alpha'] = map_data['country'].map(
-        country_codes)  # Mapeia os países para os seus códigos ISO
 
 # ___ Mapa "All"_____________________________________________________
 
