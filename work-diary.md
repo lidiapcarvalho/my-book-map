@@ -141,3 +141,22 @@ Pandas
 ## 12/09/2026
 
 ### O que fiz? 🤔
+
+- Continuei o desenvolvimento do mapa interativo do projeto `my-book-map`
+- Corrigi a lógica do dropdown para alternar corretamente entre All, 2022 e 2025
+- Adicionei informação ao `hover`, apresentando o número de livros de cada país, com a identificação "Número de livros"
+- Criei uma imagem do mapa para apresentar no `README.md`
+- Fiz uma revisão na estrutura dos ficheiros
+- Removi o ficheiro antigo `mapa_2022.html`
+- Confirmei que o `.gitigmore` já inclui `__pycache__/` e os ficheiros `.pyc`
+- Limpei o código que já não era utilizado em `map.py` e `main.py`
+- Confirmei que o projeto continuava a executar sem erros
+
+### O que aprendi 🗒️🤓
+
+- O dropdown do Plotly pode controlar a visibilidade dos diferentes traces através de `update`
+- É possível criar diferentes figuras e combinar os seus traces numa única figura
+- `color_discrete_sequence` permite definir uma cor específica para os dados apresentados num mapa
+- `hover_data` permite controlar a informação apresentada ao passar o rato sobre um país
+- O ficheiro `.gitignore` permite impedir que ficheiros gerados automaticamente pelo Python sejam adicionados ao repositório
+- O `README.md` pode incluir imagens armazenadas dentro do próprio repositório através de um caminho relativo
