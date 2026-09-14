@@ -81,20 +81,26 @@ def statistics(books):
 
     # ver def show_statistics(books)
 
+    # Quantos livros temos de cada país?
+    country_counts = books['country'].value_counts()
+
     # Ordenar os países pelo número de livros
     country_counts_sorted = country_counts.sort_values(ascending=False)
 
+    print(country_counts_sorted)
     print(sorted(books['country'].unique()))
 
     # ver def show_statistics(books)
 
-    return
+    return country_counts_sorted
 
 
 def charts(books):
     # ==================================================
     # 5. GRÁFICO — LIVROS POR PAÍS
     # ==================================================
+
+    country_counts_sorted = statistics(books)
 
     # Plotly
     fig = px.bar(

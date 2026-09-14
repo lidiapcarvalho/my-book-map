@@ -160,3 +160,9 @@ Pandas
 - `hover_data` permite controlar a informação apresentada ao passar o rato sobre um país
 - O ficheiro `.gitignore` permite impedir que ficheiros gerados automaticamente pelo Python sejam adicionados ao repositório
 - O `README.md` pode incluir imagens armazenadas dentro do próprio repositório através de um caminho relativo
+
+## 14/09/2026
+
+### O que fiz? 🤔
+
+- 
