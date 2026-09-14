@@ -7,7 +7,7 @@ An interactive map of the books I have read, built with Python.
 
 ![My Book's World Travel map](images/map.jpg)
 
-The map shows the countries represented in my reading data and allows the books to be explored by reading year using a dropdown menu.
+The map shows the countries represented in my reading data, the number of books read from each country, and allows the books to be explored by reading year using a dropdown menu.
 
 ## Data Source
 
