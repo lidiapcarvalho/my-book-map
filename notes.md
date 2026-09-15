@@ -8,13 +8,67 @@ DataFrame - estrutura de dados do pandas que organiza informação em forma de t
 
 `as pd` - abreviatura convencional para pandas
 
+## [`src/map.py`](src/map.py)
+
+```python
+geojson_url = "..."
+geojson = requests.get(geojson_url).json()
+```
+- Obtem um ficheiro GeoJSON através de um URL usando `requests`
+
+```python
+country_codes = {
+    'Portugal': 'PRT',
+    ...
+}
+```
+- Associação de países aos códigos ISO, essencial pois o mapa utiliza os códigos ISO-3 para identificar os países
+
+`books.groupby(['year_read', 'country']).size()`
+
+`.size()` - neste caso serve para contar quantas linhas existem em cada grupo
+
+`px.choropleth_map(...)` - criação de mapa coroplético interativo
+- Mapa coroplético - mapa temático em que as regiões ou áreas administrativas são pintadas, hachuradas ou coloridas com diferentes tons de cor de acordo com o valor de uma variável estatística
+
+```python
+year_colors = {
+    2022: 'pink',
+    2025: 'red',
+    ...
+}
+```
+- Atribuição de cores a cada ano
+
+## [`src/stats.py`](src/stats.py)
+
+### Consultar `def show_statistics(books):` e `def statistics(books):`
+
+`groupby` - agrupa os livros por país
+
 `Index()` - estrutura de pandas para representar uma sequência de nomes
+
+**Operadores**
+==    igual a
+!=    diferente de
+>     maior que
+<     menor que
+>=    maior ou igual a
+<=    menor ou igual a
+
+`.value_counts()` - conta quantas vezes cada valor aparece, e por defeito, ordena os resultados do maior para o menor número de ocorrências
+
+### Consultar `def data_exploration(books):`
+
+`books.shape` - (linhas, colunas)
 
 `books.head()` - mostra as primeiras 5 linhas
 - Se colocarmos um número dentro dos parênteses, podemos quantas linhas queremos ver
 
 `books.tail()` - mostra as últimas 5 linhas
 - Idem
+
+### Consultar `def filter_data(books):`
 
 **Escolher colunas específicas**
 - Uma coluna
@@ -33,15 +87,7 @@ Ao escolher apenas uma coluna, não é necessário repetir os parênteses retos,
 Juntando:
 `books[books['year_read'] == 2022]` - filtra o DataFrame
 
-**Operadores**
-==    igual a
-!=    diferente de
->     maior que
-<     menor que
->=    maior ou igual a
-<=    menor ou igual a
-
-`.value_counts()` - conta quantas vezes cada valor aparece, e por defeito, ordena os resultados do maior para o menor número de ocorrências
+### Consultar `def charts(books):`
 
 **Usando o Plotly**
 ```python
@@ -57,8 +103,5 @@ fig.show()
 `fig` - variável onde guardamos o objeto gráfico criado pelo Plotly
 `px.bar(...)` - cria o gráfico
 `fig.show()` - mostra o gráfico
-
-
-
 
 
