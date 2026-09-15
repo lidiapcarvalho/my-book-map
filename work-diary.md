@@ -165,4 +165,19 @@ Pandas
 
 ### O que fiz? 🤔
 
-- 
+- Continuei a revisão e organização do projeto
+- Simplifiquei o `main.py`, removendo imports e código que já não eram utilizados pelo mapa
+- Revisei o `map.py` e confirmei que a lógica atual do mapa, das cores por ano, do dropdown e do `hover` estava correta
+- Corrigi as funções `statistics()` e `charts()` no `stats.py`, fazendo com que cada função trabalhe com os dados de que necessita
+- Atualizei o `requirements.txt`, adicionando `requests`, que é utilizado pelo `map.py`
+- Executei novamente o projeto para confirmar que continuava a funcionar sem erros
+- Revisei o `README.md` e melhorei a descrição do mapa, incluindo a informação sobre o número de livros por país
+- Mantive o `notes.md` para uma revisão posterior
+
+### O que aprendi 🗒️🤓
+
+- Uma função deve receber explicitamente os dados de que necessita, em vez de depender de variáveis criadas noutra função
+- O `requirements.txt` deve incluir as bibliotecas que o projeto utiliza diretamente
+- É importante rever o código depois de alterações maiores para remover código que deixou de ser necessário
+- A documentação deve acompanhar a versão atual do projeto e explicar de forma simples o que o mapa permite visualizar
+
