@@ -21,6 +21,9 @@ def create_map(books):
         'Portugal': 'PRT',
         'South Korea': 'KOR',
         'United States': 'USA',
+        'United Kingdom': 'GBR',
+        'France': 'FRA',
+        'Ireland': 'IRL'
     }
 
     year_colors = {
