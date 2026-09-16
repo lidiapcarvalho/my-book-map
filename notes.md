@@ -40,6 +40,21 @@ year_colors = {
 ```
 - Atribuição de cores a cada ano
 
+`years = sorted(books['year_read'].unique())`
+- O código utiliza os anos existentes no CSV, em vez de depender diretamente de uma lista fixa para criar o dropdown
+
+`buttons = []`
+- Controla a visibilidade dos traces através dos botões do Plotly
+
+```python
+hover_data={'books': True}
+labels={'books': 'Número de livros'}
+```
+- Mostra informações no hover, como o número de livros se passarmos o rato sobre um país
+
+`fig_map.write_html('mapa.html', auto_open=True)`
+- Cria o mapa como HTML
+
 ## [`src/stats.py`](src/stats.py)
 
 ### Consultar `def show_statistics(books):` e `def statistics(books):`
