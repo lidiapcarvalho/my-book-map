@@ -181,3 +181,22 @@ Pandas
 - É importante rever o código depois de alterações maiores para remover código que deixou de ser necessário
 - A documentação deve acompanhar a versão atual do projeto e explicar de forma simples o que o mapa permite visualizar
 
+## 16/09/2026
+
+### O que fiz? 🤔
+
+- Atualizei o `notes.md`
+- Organizei os livros lidos no primeiro semestre de 2026
+- Adicionei os novos livros ao `books.csv`
+- Mantive um ficheiro `.txt` provisório com os dados do primeiro semestre, para futuramente organizar o segundo semestre de 2026
+- Atualizei o `map.py` com os códigos ISO dos novos países presentes nos dados: Reino Unido, França e Irlanda
+- Ao verificar o mapa, percebi que a França não estava a ser apresentada
+- Investiguei a origem do problema através do GeoJSON utilizado pelo mapa e confirmei que a França aparece nesse ficheiro com o código `-99`, apesar de o código ISO oficial ser `FRA`
+- Deixei a investigação do problema da França para continuar posteriormente
+
+### O que aprendi 🗒️🤓
+
+- Os códigos ISO-3166-1 são utilizados para associar os países aos dados geográficos do mapa
+- Um país pode estar corretamente identificado nos nossos dados e, ainda assim, não ser apresentado se a fonte geográfica utilizada tiver uma identificação diferente ou incompleta
+- O `.size()` do pandas permite contar o número de elementos de cada grupo criado com `groupby()`
+- Nem todos os problemas de um mapa interativo estão necessariamente no código Python; também podem estar relacionados com os dados geográficos utilizados
