@@ -200,3 +200,7 @@ Pandas
 - Um país pode estar corretamente identificado nos nossos dados e, ainda assim, não ser apresentado se a fonte geográfica utilizada tiver uma identificação diferente ou incompleta
 - O `.size()` do pandas permite contar o número de elementos de cada grupo criado com `groupby()`
 - Nem todos os problemas de um mapa interativo estão necessariamente no código Python; também podem estar relacionados com os dados geográficos utilizados
+
+## 17/09/2026
+
+### O que fiz? 🤔

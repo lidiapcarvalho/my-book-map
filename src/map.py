@@ -4,7 +4,7 @@ import plotly.express as px
 
 def create_map(books):
 
-    geojson_url = "https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson"
+    geojson_url = "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_50m_admin_0_countries.geojson"
     geojson = requests.get(geojson_url).json()
 
     # ==================================================
@@ -58,7 +58,7 @@ def create_map(books):
             year_data,
             geojson=geojson,
             locations=year_data['country'].map(country_codes),
-            featureidkey='properties.ISO3166-1-Alpha-3',
+            featureidkey='properties.ADM0_A3',
             color_discrete_sequence=[year_colors[year]],
             hover_name='country',
             hover_data={
@@ -79,7 +79,7 @@ def create_map(books):
         map_data_by_year[first_year],
         geojson=geojson,
         locations=map_data_by_year[first_year]['country'].map(country_codes),
-        featureidkey='preporties.ISO3166-1-Alpha-3',
+        featureidkey='preporties.ADM0_A3',
         color_discrete_sequence=[year_colors[first_year]],
         hover_name='country',
         map_style='basic',
