@@ -204,3 +204,16 @@ Pandas
 ## 17/09/2026
 
 ### O que fiz? 🤔
+
+- Investiguei diferentes identificadores geográficos, incluindo `ADM0_A3` e `ISO_A3_EH`
+- Testei uma nova fonte de dados geográficos do Natural Earth
+- Confirmei que a França é identificada como `FRA` através de `ADM0_A3`
+- Alterei o mapa para utilizar o GeoJSON do Natural Earth e `properties.ADM0_A3`
+- Executei novamente o projeto e confirmei que a França passou a aparecer corretamente no mapa
+- Fiz um novo commit e `git push` com a correção
+
+### O que aprendi 🗒️🤓
+
+- Nem todos os GeoJSON utilizam os códigos ISO da mesma forma
+- É importante verificar a estrutura e as propriedades da fonte de dados geográficos quando um país não aparece no mapa.
+- O campo `ADM0_A3` do Natural Earth permite uma correspondência correta com os códigos dos países utilizados no projeto.
