@@ -41,6 +41,8 @@ def create_map(books):
 
     years = sorted(books['year_read'].unique())
 
+    books_per_year = books['year_read'].value_counts().sort_index()
+
     map_data_by_year = {}
 
     for year in years:
@@ -68,7 +70,7 @@ def create_map(books):
             map_style='basic',
             zoom=1,
             center={"lat": 25, "lon": 10},
-            title="My Book's World Travel 🌍"
+            title=f"My Book's World Travel 🌍 - {year}: {books_per_year[year]} books"
         )
 
 # ___ Mapa "All"_____________________________________________________
@@ -123,6 +125,9 @@ def create_map(books):
         'args': [
             {
                 'visible': all_visible
+            },
+            {
+                'title.text': f"My Book's World Travel 🌍 — All: {len(books)} books"
             }
         ]
     })
@@ -142,6 +147,9 @@ def create_map(books):
             'args': [
                 {
                     'visible': visible
+                },
+                {
+                    'title.text': f"My Book's World Travel 🌍 — {year}: {books_per_year[year]} books"
                 }
             ]
         })
