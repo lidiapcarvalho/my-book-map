@@ -215,5 +215,5 @@ Pandas
 ### O que aprendi 🗒️🤓
 
 - Nem todos os GeoJSON utilizam os códigos ISO da mesma forma
-- É importante verificar a estrutura e as propriedades da fonte de dados geográficos quando um país não aparece no mapa.
-- O campo `ADM0_A3` do Natural Earth permite uma correspondência correta com os códigos dos países utilizados no projeto.
+- É importante verificar a estrutura e as propriedades da fonte de dados geográficos quando um país não aparece no mapa
+- O campo `ADM0_A3` do Natural Earth permite uma correspondência correta com os códigos dos países utilizados no projeto
