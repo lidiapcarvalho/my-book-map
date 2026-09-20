@@ -217,3 +217,22 @@ Pandas
 - Nem todos os GeoJSON utilizam os códigos ISO da mesma forma
 - É importante verificar a estrutura e as propriedades da fonte de dados geográficos quando um país não aparece no mapa
 - O campo `ADM0_A3` do Natural Earth permite uma correspondência correta com os códigos dos países utilizados no projeto
+
+## 19/09/2026
+
+### O que fiz? 🤔
+
+- Atualizei o mapa para apresentar o número total de livros lidos por ano
+- Criei uma contagem dos livros por ano através do `value_counts()` do pandas
+- Integrei essa informação no título do mapa
+- Atualizei os botões do dropdown para que, ao selecionar `All` ou um determinado ano, o título mostrasse também o número de livros correspondente
+- Corrigi um erro relacionado com o acesso aos dados, utilizando `books_per_year[year]` em vez de tentar aceder ao DataFrame `books` através do ano
+- Ajustei a atualização do título através de `title.text`
+- Testei o mapa e confirmei que o título e o número de livros são atualizados corretamente ao utilizar o dropdown
+
+### O que aprendi 🗒️🤓
+
+- `value_counts()` permite contar rapidamente quantos registos existem em cada categoria
+- Um botão do Plotly pode atualizar simultaneamente a visibilidade dos elementos e propriedades do layout
+- Para atualizar corretamente o texto do título através de um dropdown, pode ser necessário utilizar `title.text`
+- É importante distinguir o DataFrame original (`books`) de uma série criada especificamente para contar livros por ano (`books_per_year`)
