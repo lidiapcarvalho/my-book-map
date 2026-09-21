@@ -1,5 +1,21 @@
 import requests
+import pycountry
 import plotly.express as px
+
+# Código dos paíeses
+country_aliases = {
+    'South Korea': 'Korea, Republic of',
+}
+
+
+def get_country_code(country):
+    country_name = country_aliases.get(country, country)
+    country_data = pycountry.countries.get(name=country_name)
+
+    if country_data:
+        return country_data.alpha_3
+
+    return None
 
 
 def create_map(books):
@@ -10,21 +26,6 @@ def create_map(books):
     # ==================================================
     # 6. MAPA
     # ==================================================
-
-    # Código dos paíeses
-    country_codes = {
-        'Argentina': 'ARG',
-        'Brazil': 'BRA',
-        'India': 'IND',
-        'Japan': 'JPN',
-        'Poland': 'POL',
-        'Portugal': 'PRT',
-        'South Korea': 'KOR',
-        'United States': 'USA',
-        'United Kingdom': 'GBR',
-        'France': 'FRA',
-        'Ireland': 'IRL'
-    }
 
     year_colors = {
         2022: 'pink',
@@ -59,7 +60,7 @@ def create_map(books):
         year_figures[year] = px.choropleth_map(
             year_data,
             geojson=geojson,
-            locations=year_data['country'].map(country_codes),
+            locations=year_data['country'].map(get_country_code),
             featureidkey='properties.ADM0_A3',
             color_discrete_sequence=[year_colors[year]],
             hover_name='country',
@@ -80,7 +81,8 @@ def create_map(books):
     fig_map = px.choropleth_map(
         map_data_by_year[first_year],
         geojson=geojson,
-        locations=map_data_by_year[first_year]['country'].map(country_codes),
+        locations=map_data_by_year[first_year]['country'].map(
+            get_country_code),
         featureidkey='preporties.ADM0_A3',
         color_discrete_sequence=[year_colors[first_year]],
         hover_name='country',

@@ -1,3 +1,4 @@
 pandas
 plotly
 requests
+pycountry
