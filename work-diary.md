@@ -236,3 +236,25 @@ Pandas
 - Um botão do Plotly pode atualizar simultaneamente a visibilidade dos elementos e propriedades do layout
 - Para atualizar corretamente o texto do título através de um dropdown, pode ser necessário utilizar `title.text`
 - É importante distinguir o DataFrame original (`books`) de uma série criada especificamente para contar livros por ano (`books_per_year`)
+
+## 21/09/2026
+
+### O que fiz? 🤔
+
+- Instalei a biblioteca `pycountry` para deixar de manter manualmente os códigos ISO dos países no projeto
+- Adicionei `pycountry` ao `requirements.txt`
+- Testei a obtenção automática dos códigos ISO para os países já presentes no `books.csv`
+- Identifiquei que `South Korea` não era reconhecido diretamente pela biblioteca
+- Criei um sistema de aliases para tratar diferenças entre os nomes utilizados no projeto e os nomes reconhecidos pelo `pycountry`
+- Criei a função `get_country_code()` para converter automaticamente os nomes dos países nos respetivos códigos ISO de três letras
+- Substituí no `map.py` o dicionário manual `country_codes` pela conversão automática através do `pycountry`
+- Testei a solução com os países existentes nos dados
+- Testei também `Germany`, um país que ainda não está presente no CSV, confirmando que o código `DEU` é obtido automaticamente
+- Executei o projeto e confirmei que o mapa continua a funcionar corretamente
+
+### O que aprendi 🗒️🤓
+
+- Bibliotecas externas podem evitar a manutenção manual de informação que já existe numa base de dados standard
+- O `pycountry` permite obter automaticamente códigos ISO 3166-1
+- Aliases são úteis quando os nomes utilizados nos nossos dados não coincidem com os nomes utilizados pela biblioteca
+- Separar a conversão dos nomes dos países numa função torna o código do mapa mais simples e fácil de manter.
