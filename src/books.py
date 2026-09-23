@@ -4,13 +4,32 @@ import pandas as pd
 def add_book():
     title = input("Título: ")
     author = input("Autor: ")
-    year_read = input("Ano de leitura: ")
+
+    # Ano de leitura
+    while True:
+        year_read = input("Ano de leitura: ")
+
+        if year_read.isdigit():
+            break
+
+        print("Por favor, introduz um ano válido.")
+
     country = input("País: ")
     publication_year = input("Ano de publicação: ")
     century = input("Século: ")
     reading_language = input("Idioma de leitura: ")
     genre = input("Género: ")
-    rating = input("Rating: ")
+
+    # Rating
+    while True:
+        rating = input("Rating: ")
+
+        try:
+            rating = float(rating)
+            break
+
+        except ValueError:
+            print("Por favor, introduz um rating válido.")
 
     print(title)
     print(author)
