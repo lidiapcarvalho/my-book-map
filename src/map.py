@@ -27,12 +27,12 @@ def create_map(books):
     # 6. MAPA
     # ==================================================
 
-    year_colors = {
-        2022: 'pink',
-        2025: 'red',
-        2026: 'blue',
-        2027: 'green'
-    }
+    # year_colors = {
+    # 2022: 'pink',
+    # 2025: 'red',
+    # 2026: 'blue',
+    # 2027: 'green'
+    # }
 
     year_country_counts = (
         books.groupby(['year_read', 'country'])
@@ -41,6 +41,22 @@ def create_map(books):
     )
 
     years = sorted(books['year_read'].unique())
+
+    colors = [
+        'pink',
+        'red',
+        'blue',
+        'green',
+        'orange',
+        'purple',
+        'brown',
+        'cyan'
+    ]
+
+    year_colors = {
+        year: colors[i % len(colors)]
+        for i, year in enumerate(years)
+    }
 
     books_per_year = books['year_read'].value_counts().sort_index()
 
