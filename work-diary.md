@@ -258,3 +258,23 @@ Pandas
 - O `pycountry` permite obter automaticamente códigos ISO 3166-1
 - Aliases são úteis quando os nomes utilizados nos nossos dados não coincidem com os nomes utilizados pela biblioteca
 - Separar a conversão dos nomes dos países numa função torna o código do mapa mais simples e fácil de manter.
+
+## 22/09/2026
+
+### O que fiz? 🤔
+
+- Criado o ficheiro `src/books.py` para permitir adicionar novos livros ao projeto sem editar diretamente o `books.csv`
+- Criada a função `add_book()` para recolher os dados de um novo livro através de `input()`
+- Adicionados os 9 campos correspondentes às colunas do `books.csv`: título, autor, ano de leitura, país, ano de publicação, século, idioma de leitura, género e rating
+- Utilizado `pandas` para criar um `DataFrame` com os dados introduzidos
+- Implementada a gravação do novo livro no `data/books.csv` através de `to_csv()`, utilizando `mode='a'` para acrescentar a nova linha sem substituir os dados existentes
+- Integrada a função `add_book()` no `src/main.py`
+- Adicionada uma pergunta para escolher se pretende adicionar um novo livro ao executar o programa
+- Após a adição de um livro, o `books.csv` é novamente carregado antes de criar o mapa, garantindo que os novos dados são utilizados
+- Testada a funcionalidade com a opção de não adicionar um livro e com a adição de um livro de teste
+- Testado um ano novo (`2027`) para confirmar que o mapa deteta automaticamente o novo ano e apresenta a respetiva cor
+- Removidos os dados utilizados apenas para teste
+
+## 23/09/2026
+
+### O que fiz? 🤔
