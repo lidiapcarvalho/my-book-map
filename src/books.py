@@ -7,7 +7,7 @@ def add_book():
 
     # Ano de leitura
     while True:
-        year_read = input("Ano de leitura: ")
+        year_read = int(input("Ano de leitura: "))
 
         if year_read.isdigit():
             break
@@ -15,8 +15,8 @@ def add_book():
         print("Por favor, introduz um ano válido.")
 
     country = input("País: ")
-    publication_year = input("Ano de publicação: ")
-    century = input("Século: ")
+    publication_year = int(input("Ano de publicação: "))
+    century = int(input("Século: "))
     reading_language = input("Idioma de leitura: ")
     genre = input("Género: ")
 
@@ -26,7 +26,11 @@ def add_book():
 
         try:
             rating = float(rating)
-            break
+
+            if 0 <= rating <= 5:
+                break
+
+            print("O rating deve estar entre 0 e 5.")
 
         except ValueError:
             print("Por favor, introduz um rating válido.")
