@@ -278,3 +278,11 @@ Pandas
 ## 23/09/2026
 
 ### O que fiz? 🤔
+
+- Tornada dinâmica a atribuição de cores aos anos no mapa, deixando de ser necessário adicionar manualmente cada novo ano ao dicionário `year_colors`
+- As cores são agora atribuídas automaticamente aos anos existentes no `books.csv`, permitindo que novos anos sejam reconhecidos sem alterações adicionais no código
+- Testada a nova lógica com o ano de 2028 através da funcionalidade de adição de livros
+- Confirmado que o ano de 2028 foi reconhecido pelo mapa e recebeu automaticamente uma nova cor
+- Removidos os dados utilizados apenas para o teste
+- Adicionada validação ao campo `year_read`, garantindo que o valor introduzido é numérico
+- Adicionada validação ao campo `rating`, convertendo o valor introduzido para `float` e rejeitando entradas que não sejam numéricas.
