@@ -286,3 +286,16 @@ Pandas
 - Removidos os dados utilizados apenas para o teste
 - Adicionada validação ao campo `year_read`, garantindo que o valor introduzido é numérico
 - Adicionada validação ao campo `rating`, convertendo o valor introduzido para `float` e rejeitando entradas que não sejam numéricas.
+
+## 24/09/2026
+
+### O que fiz? 🤔
+
+- Melhorada a validação do campo `rating` no `books.py`
+- Definido que o `rating` deve ser um valor numérico entre 0 e 5
+- Mantida a conversão do `rating` para `float`
+- Testadas entradas inválidas, incluindo valores não numéricos e valores fora do intervalo permitido
+- Confirmado que valores válidos, como `4.5`, são aceites corretamente
+- Alterado o campo `year_read` para ser convertido para `int` no momento da introdução
+- Testada a introdução do ano de leitura após a alteração
+
