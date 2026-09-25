@@ -7,16 +7,42 @@ def add_book():
 
     # Ano de leitura
     while True:
-        year_read = int(input("Ano de leitura: "))
+        year_read = input("Ano de leitura: ")
 
         if year_read.isdigit():
+            year_read = int(year_read)
             break
 
         print("Por favor, introduz um ano válido.")
 
     country = input("País: ")
-    publication_year = int(input("Ano de publicação: "))
-    century = int(input("Século: "))
+
+    # Ano de publicação
+    while True:
+        publication_year = input("Ano de publicação: ")
+
+        if publication_year == "":
+            break
+
+        if publication_year.isdigit():
+            publication_year = int(publication_year)
+            break
+
+        print("Por favor, introduz um ano válido.")
+
+    # Século
+    while True:
+        century = input("Século: ")
+
+        if century == "":
+            break
+
+        if century.isdigit():
+            century = int(century)
+            break
+
+        print("Por favor, introduz um século válido.")
+
     reading_language = input("Idioma de leitura: ")
     genre = input("Género: ")
 
