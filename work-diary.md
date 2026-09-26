@@ -299,3 +299,18 @@ Pandas
 - Alterado o campo `year_read` para ser convertido para `int` no momento da introdução
 - Testada a introdução do ano de leitura após a alteração
 
+## 25/09/2026
+
+### O que fiz? 🤔
+
+- Adicionada validação ao campo `publication_year`
+- Definido que o ano de publicação pode ficar vazio, mas, quando preenchido, deve ser um número inteiro válido
+- Adicionada validação ao campo `century`
+- Definido que o século pode ficar vavzio, mas, quando preenchido, deve ser um número inteiro válido
+- Corrigida a validação do campo `year_read`, garantindo que a conversão para `int` acontece depois da verificação do valor introduzido
+- Testada a introdução de valores válidos e campos vazios nos campos opcionais
+- Confirmado o funcionamento da recolha dos dados a+ós as alterações
+
+## /09/2026
+
+### O que fiz? 🤔
