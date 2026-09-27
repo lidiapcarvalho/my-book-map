@@ -1,4 +1,5 @@
 import pandas as pd
+from map import get_country_code
 
 
 def add_book():
@@ -15,7 +16,13 @@ def add_book():
 
         print("Por favor, introduz um ano válido.")
 
-    country = input("País: ")
+    while True:
+        country = input("País: ")
+
+        if get_country_code(country):
+            break
+
+        print("País não encontrado. Tenta novamente.")
 
     # Ano de publicação
     while True:
