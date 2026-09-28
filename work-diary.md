@@ -311,6 +311,18 @@ Pandas
 - Testada a introdução de valores válidos e campos vazios nos campos opcionais
 - Confirmado o funcionamento da recolha dos dados a+ós as alterações
 
+## 27/09/2026
+
+### O que fiz? 🤔
+
+- Adicionada validação ao campo `country` no `books.py`
+- Reutilizada a função `get_country_code()` existente no `map.py` para verificar se o país introduzido é reconhecido
+- Mantidos os nomes dos países no CSV, sem os substituir pelos respetivos códigos ISO
+- Mantido o alias existente para `South Korea`, permitindo que seja reconhecido corretamente como `KOR`
+- Se o país introduzido não for reconhecido, o programa apresenta uma mensagem de erro e pede novamente o país
+- Corrigado o import de `get_country_code()` no `books.py`, de `src.map` para `map`, de acordo com a forma como o projeto é executado
+- Testada a validação com `Portugal`, `South Korea` e um país inválido
+
 ## /09/2026
 
 ### O que fiz? 🤔
