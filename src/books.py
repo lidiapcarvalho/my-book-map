@@ -3,10 +3,25 @@ from map import get_country_code
 
 
 def add_book():
-    title = input("Título: ")
-    author = input("Autor: ")
+    # Title
+    while True:
+        title = input("Título: ")
 
-    # Ano de leitura
+        if title.strip():
+            break
+
+        print("O título não pode ficar vazio.")
+
+    # Author
+    while True:
+        author = input("Autor: ")
+
+        if author.strip():
+            break
+
+        print("O autor não pode ficar vazio.")
+
+    # Year Read
     while True:
         year_read = input("Ano de leitura: ")
 
@@ -16,6 +31,7 @@ def add_book():
 
         print("Por favor, introduz um ano válido.")
 
+    # Country
     while True:
         country = input("País: ")
 
@@ -24,7 +40,7 @@ def add_book():
 
         print("País não encontrado. Tenta novamente.")
 
-    # Ano de publicação
+    # Publication Year
     while True:
         publication_year = input("Ano de publicação: ")
 
@@ -37,7 +53,7 @@ def add_book():
 
         print("Por favor, introduz um ano válido.")
 
-    # Século
+    # Century
     while True:
         century = input("Século: ")
 
@@ -50,7 +66,10 @@ def add_book():
 
         print("Por favor, introduz um século válido.")
 
+    # Reading Language
     reading_language = input("Idioma de leitura: ")
+
+    # Genre
     genre = input("Género: ")
 
     # Rating
