@@ -323,6 +323,16 @@ Pandas
 - Corrigado o import de `get_country_code()` no `books.py`, de `src.map` para `map`, de acordo com a forma como o projeto é executado
 - Testada a validação com `Portugal`, `South Korea` e um país inválido
 
-## /09/2026
+## 28/09/2026
+
+### O que fiz? 🤔
+
+- Adicionada validação ao campo `title`, garantindo que o título do livro não pode ficar vazio ou conter apenas espaços
+- Adicionada validação ao campo `author`, garantindo que o autor não pode ficar vazio ou conter apenas espaços
+- Utilizado o método `strip()` para verificar se os campos contêm efetivamente texto
+- Realizado um teste completo da função `add_book()` após as alterações
+- Confirmado que as novas validações funcionam corretamente em conjunto com as validações já existentes
+
+## --/--/2026
 
 ### O que fiz? 🤔
