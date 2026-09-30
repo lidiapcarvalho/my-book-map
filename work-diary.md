@@ -333,6 +333,6 @@ Pandas
 - Realizado um teste completo da função `add_book()` após as alterações
 - Confirmado que as novas validações funcionam corretamente em conjunto com as validações já existentes
 
-## --/--/2026
+## 30/09/2026
 
 ### O que fiz? 🤔

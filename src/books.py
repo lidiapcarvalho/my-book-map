@@ -79,10 +79,10 @@ def add_book():
         try:
             rating = float(rating)
 
-            if 0 <= rating <= 5:
+            if 0 <= rating <= 5 and rating * 2 == int(rating * 2):
                 break
 
-            print("O rating deve estar entre 0 e 5.")
+            print("O rating deve estar entre 0 e 5, em incrementos de 0.5.")
 
         except ValueError:
             print("Por favor, introduz um rating válido.")
