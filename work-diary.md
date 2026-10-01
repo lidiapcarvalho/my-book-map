@@ -336,3 +336,13 @@ Pandas
 ## 30/09/2026
 
 ### O que fiz? 🤔
+
+- Melhorada a validação do campo `rating` no `books.py`
+- Mantida a validação do intervalo entre 0 e 5
+- Adicionada a validação dos incrementos de 0.5, de forma a aceitar valores como `4`, `4.5` ou `5`, mas rejeitar valores como `4.25`
+- Testada a nova validação com valores válidos e inválidos
+- Confirmado o funcionamento da introdução de livros após a alteração
+
+## --/--/2026
+
+### O que fiz? 🤔
