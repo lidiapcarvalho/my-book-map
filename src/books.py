@@ -5,18 +5,18 @@ from map import get_country_code
 def add_book():
     # Title
     while True:
-        title = input("Título: ")
+        title = input("Título: ").strip()
 
-        if title.strip():
+        if title:
             break
 
         print("O título não pode ficar vazio.")
 
     # Author
     while True:
-        author = input("Autor: ")
+        author = input("Autor: ").strip()
 
-        if author.strip():
+        if author:
             break
 
         print("O autor não pode ficar vazio.")
