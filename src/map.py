@@ -1,21 +1,35 @@
 import requests
 import pycountry
 import plotly.express as px
+import unicodedata
 
 # Código dos paíeses
 country_aliases = {
     'South Korea': 'Korea, Republic of',
+    'Rússia': 'Russian Federation',
+    'Russia': 'Russian Federation',
+    'Suíça': 'Switzerland',
 }
 
 
 def get_country_code(country):
     country_name = country_aliases.get(country, country)
+    country_name = remove_accents(country_name)
+
     country_data = pycountry.countries.get(name=country_name)
 
     if country_data:
         return country_data.alpha_3
 
     return None
+
+
+def remove_accents(text):
+    return ''.join(
+        char
+        for char in unicodedata.normalize('NFD', text)
+        if unicodedata.category(char) != 'Mn'
+    )
 
 
 def create_map(books):
