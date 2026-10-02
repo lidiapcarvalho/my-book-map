@@ -343,6 +343,14 @@ Pandas
 - Testada a nova validação com valores válidos e inválidos
 - Confirmado o funcionamento da introdução de livros após a alteração
 
-## --/--/2026
+## 01/10/2026
 
 ### O que fiz? 🤔
+
+- Melhorada a identificação dos nomes dos países através da remoção de acentos antes da pesquisa no `pycountry`
+- Testado o reconhecimento de países como `Nigéria` e `Áustria`
+- Identificada a necessidade de utilizar aliases para países cujo nome em português não corresponde diretamente ao nome utilizado pelo `pycountry`
+- Adicionados aliases para `Rússia` e `Suíça`, permitindo o seu reconhecimento através dos nomes utilizados pelo `pycountry`
+- Mantidos os nomes introduzidos pelo utilizador no `books.csv`, utilizando os aliases apenas durante a pesquisa do código ISO
+- Testada a identificação dos países após as alterações
+- Identificada uma melhoria para a funcionalidade de adição de livros: permitir adicionar vários livros consecutivamente sem ter de reiniciar o programa
