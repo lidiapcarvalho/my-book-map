@@ -11,10 +11,14 @@ from books import add_book
 books = pd.read_csv('data/books.csv')
 # lê o ficheiro CSV e armazena os dados no DataFrame do pandas
 
-answer = input("Queres adicionar um novo livro? (s/n): ")
+while True:
+    answer = input("Queres adicionar um novo livro? (s/n): ")
 
-if answer.lower() == 's':
+    if answer.lower() != 's':
+        break
+
     add_book()
-    books = pd.read_csv('data/books.csv')
+
+books = pd.read_csv('data/books.csv')
 
 create_map(books)
