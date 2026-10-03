@@ -354,3 +354,20 @@ Pandas
 - Mantidos os nomes introduzidos pelo utilizador no `books.csv`, utilizando os aliases apenas durante a pesquisa do código ISO
 - Testada a identificação dos países após as alterações
 - Identificada uma melhoria para a funcionalidade de adição de livros: permitir adicionar vários livros consecutivamente sem ter de reiniciar o programa
+
+## 02/10/2026
+
+### O que fiz? 🤔
+
+- Melhorada a funcionalidade de adição de livros, permitindo adicionar vários livros consecutivamente na mesma execução do programa
+- Testada a validação dos nomes dos países
+- Identificados vários nomes de países em português que não eram reconhecidos diretamente pelo `pycountry`
+- Iniciada a criação de aliases para esses países, mantendo o nome original no CSV
+- Testados os aliases por ordem alfabética e corrigidos casos em que o `pycountry` utiliza nomes oficiais diferentes
+- Melhorada a gestão das cores do mapa para evitar a repetição da sequência de cores em anos posteriores
+- Preparado o `country_aliases` para suportar diferentes formas de escrever alguns países, incluindo nomes em português e inglês
+
+## 03/10/2026
+
+### O que fiz? 🤔
+
