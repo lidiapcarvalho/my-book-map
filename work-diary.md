@@ -371,3 +371,10 @@ Pandas
 
 ### O que fiz? 🤔
 
+- Continuada a melhoria da identificação dos países no `map.py`
+- Organizados os aliases dos países por ordem alfabética, facilitando a consulta e manutenção do código
+- Adicionados aliases para os países que não eram reconhecidos diretamente pelo `pycountry`
+- Testados os aliases por blocos alfabéticos
+- Corrigidos casos em que o `pycountry` utiliza nomes oficiais diferentes dos nomes mais comuns em português, como `Irão` e `Tanzânia`
+- Adicionadas diferentes formas de escrita para as Coreias, incluindo os nomes em português e inglês
+- Confirmado o funcionamento dos aliases após os testes
