@@ -129,21 +129,16 @@ def create_map(books):
 
     years = sorted(books['year_read'].unique())
 
-    colors = [
-        'pink',
-        'red',
-        'blue',
-        'green',
-        'orange',
-        'purple',
-        'brown',
-        'cyan'
-    ]
-
     year_colors = {
-        year: colors[i % len(colors)]
-        for i, year in enumerate(years)
+        2022: 'pink',
+        2025: 'red',
+        2026: 'blue',
+        2027: 'green',
     }
+
+    for year in years:
+        if year not in year_colors:
+            raise ValueError(f"Cor não definida para o ano {year}.")
 
     books_per_year = books['year_read'].value_counts().sort_index()
 
