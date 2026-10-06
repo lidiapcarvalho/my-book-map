@@ -378,3 +378,13 @@ Pandas
 - Corrigidos casos em que o `pycountry` utiliza nomes oficiais diferentes dos nomes mais comuns em português, como `Irão` e `Tanzânia`
 - Adicionadas diferentes formas de escrita para as Coreias, incluindo os nomes em português e inglês
 - Confirmado o funcionamento dos aliases após os testes
+
+## 05/10/2026
+
+### O que fiz? 🤔
+
+- Melhorada a gestão das cores do mapa por ano de leitura
+- Substituída a atribuição automática de cores por uma associação explícita entre cada ano e a respetiva cor
+- Mantidas as cores definidas para os anos existentes: 2022 em rosa, 2025 em vermelho e 2026 em azul
+- Adicionada uma validação para identificar anos sem uma cor definida, evitando a reutilização automática de cores
+- Testada a execução do mapa após a alteração, sem erros
