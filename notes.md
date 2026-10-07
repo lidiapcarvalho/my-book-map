@@ -2,13 +2,62 @@
 
 > As notas estão apresentadas por ficheiro
 
+## [`src/books.py`](src/books.py)
+
+`.isdigit()` - é um método de strings que verifica se todos os caracteres de um string são dígitos, verificando:
+- "2026" -> True
+- "abc" -> False
+- "20a6" -> False
+- "" -> False
+
+```python
+new_book = pd.DataFrame([{
+    'title': title,
+    'author': author,
+    'year_read': year_read,
+    ...
+    'rating': rating
+}])
+```
+
+- Cria um DataFrame com uma linha, correspondente ao livro que acabámos de introduzir
+
+```python
+new_book.to_csv(
+    'data/books.csv',
+    mode='a',
+    header=False,
+    index=False
+)
+```
+- `mode='a'` - append - acrescentar dadosao final do ficheiro, sem este poderíamos acabar por substituir o conteúdo já existente no CSV
+
+- `header=False` - header corresponde ao nome das colunas. Como não queremos escrevê-los novamente cada vez que adicionamos um livro, usamos `header=False`
+
+- `index=False` - o Pandas normalmente adiciona uma coluna de índice:
+0
+1
+2
+3
+Porém não queremos que esse índice faça parte dos nossos dados, então configuramos como False esse index, para evitar essa coluna seja gravada no CSV
+
+- Em conjunto, esta parte significa essencialmente: "Pega neste novo livro, acrescenta-o ao final de `books.csv`, sem repetir os nomes das colunas e sem adicionar o índice do Pandas."
+
 ## [`src/main.py`](src/main.py)
 
 DataFrame - estrutura de dados do pandas que organiza informação em forma de tabela, composta por linhas e colunas. No projeot, o DataFrame `books` representa a tabela com os livros lidos, onde cada linhas corresponde a um livro e cada coluna a uma caracterísitca do livro.
 
 `as pd` - abreviatura convencional para pandas
 
+`books = pd.read_csv('data/books.csv')` - lê o ficheiro CSV e armazena os dados no DataFrame do pandas
+
 ## [`src/map.py`](src/map.py)
+
+`import plotly.express as px` -
+
+`import unicodedata` -
+
+`.get()` - 
 
 ```python
 geojson_url = "..."
