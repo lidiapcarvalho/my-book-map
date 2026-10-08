@@ -388,3 +388,14 @@ Pandas
 - Mantidas as cores definidas para os anos existentes: 2022 em rosa, 2025 em vermelho e 2026 em azul
 - Adicionada uma validação para identificar anos sem uma cor definida, evitando a reutilização automática de cores
 - Testada a execução do mapa após a alteração, sem erros
+
+## 07/10/2026 & 08/10/2026
+
+### O que fiz? 🤔
+
+- Continuada a documentação do projeto no `notes.md`, registando os principais conceitos utilizados no desenvolvimento
+- Documentados conceitos relacionados com a validação e adição de livros ao CSV
+- Documentados conceitos relacionados com o processamento e identificação dos países através do `pycountry`, incluindo aliases e remoção de acentos
+- Documentada a gestão das cores do mapa por ano de leitura
+- Revistos e documentados os últimos conceitos utilizados na criação do mapa e na gestão das diferentes camadas/anos
+- Concluída a documentação dos principais conceitos técnicos utilizados no projeto
