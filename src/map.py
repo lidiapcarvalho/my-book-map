@@ -114,13 +114,6 @@ def create_map(books):
     # 6. MAPA
     # ==================================================
 
-    # year_colors = {
-    # 2022: 'pink',
-    # 2025: 'red',
-    # 2026: 'blue',
-    # 2027: 'green'
-    # }
-
     year_country_counts = (
         books.groupby(['year_read', 'country'])
         .size()

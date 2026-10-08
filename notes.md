@@ -53,11 +53,29 @@ DataFrame - estrutura de dados do pandas que organiza informação em forma de t
 
 ## [`src/map.py`](src/map.py)
 
-`import plotly.express as px` -
+`import plotly.express as px` - uma parte da biblioteca Plotly que usamos para criar os gráficos e o mapa
 
-`import unicodedata` -
+`import unicodedata`
 
-`.get()` - 
+- `unicodedata` - biblioteca que já vem com o Python, não precisamos de a instalar e, por esse motivo não aparece no `requirements.txt`, permitindo-nos trabalhar com as características dos caracteres Unicode - incluindo acentos e outros sinais. No projeto usamos para facilitar a pesquisa do país no `pycountry`.
+
+`.get()` - método de dicionários (`dict`). A ideia é: "Procura esta chave no dicionário. Se existir, devolve o valor. Se não existir, usa este outro valor." Permitindo ter no nosso caso: `country_name = country_aliases.get(country, country)` e dizer:
+- se houver um alias -> usa o nome do alias;
+- se não houver -> mantém o nome original
+É particularmente útil pois não precisasse fazer um `if` para cada país.
+
+```python
+return ''.join(
+    char
+    for char in unicodedata.normalize('NFD', text)
+    if unicodedata.category(char) != 'Mn'
+)
+```
+
+- `unicodedata.normalize('NFD', text)` - o unicode pode representar um carácter acentuado de diferentes formas. Com `NFD`, o Python separa o carácter da sua marca de acento
+- `unicodedata.category(char)` - diz-nos a categoria Unicode daquele carácter. Para a marca de acento, a categoria é `Mn`, que significa `Mark, Nonspacing`, uma marca que não ocupa espaço próprio, como muitos acentos
+- `''.join(...)` - depois de remover os acentos, temos vários caracteres separados o 
+`''.join(...)` junta-os novamente sem colocar nada entre eles
 
 ```python
 geojson_url = "..."
@@ -72,13 +90,15 @@ country_codes = {
 }
 ```
 - Associação de países aos códigos ISO, essencial pois o mapa utiliza os códigos ISO-3 para identificar os países
+(Usado no desenvolvimento do projeto)
 
 `books.groupby(['year_read', 'country']).size()`
 
 `.size()` - neste caso serve para contar quantas linhas existem em cada grupo
 
-`px.choropleth_map(...)` - criação de mapa coroplético interativo
-- Mapa coroplético - mapa temático em que as regiões ou áreas administrativas são pintadas, hachuradas ou coloridas com diferentes tons de cor de acordo com o valor de uma variável estatística
+`.reset_index(name='books')` - aparece normalmente depois de um `groupby()` / `value_counts()`, em suma, transforma o índice numa coluna e dá o nome `books` à coluna das contagens
+
+`.sort_index()` - ordena os dados pelo índice, diferente de `.sort_values()` que ordena pelos valores
 
 ```python
 year_colors = {
@@ -89,8 +109,22 @@ year_colors = {
 ```
 - Atribuição de cores a cada ano
 
+`px.choropleth_map(...)` - criação de mapa coroplético interativo
+- Mapa coroplético - mapa temático em que as regiões ou áreas administrativas são pintadas, hachuradas ou coloridas com diferentes tons de cor de acordo com o valor de uma variável estatística
+
+`featureidkey='properties.ADM0_A3',`
+- `ADM0_A3` - código de três letras usado pelo Natural Earth para identificar o país
+
+`color_discrete_sequence=[year_colors[year]]`
+- `year_colors[year]` vai buscar ao dicionário a cor correspondente ao ano atual
+
+`fig_map.add_traces`
+- `trace` simplificando é uma camada de dados/gráfico dentro da figura, é útil pois permite que o mapa tenha vários anos e queremos que cada ano seja tratado como uma camada diferente, que depois pode ser controlada pelo dropdown
+
 `years = sorted(books['year_read'].unique())`
 - O código utiliza os anos existentes no CSV, em vez de depender diretamente de uma lista fixa para criar o dropdown
+
+### Dropdown
 
 `buttons = []`
 - Controla a visibilidade dos traces através dos botões do Plotly
