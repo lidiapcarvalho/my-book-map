@@ -399,3 +399,11 @@ Pandas
 - Documentada a gestão das cores do mapa por ano de leitura
 - Revistos e documentados os últimos conceitos utilizados na criação do mapa e na gestão das diferentes camadas/anos
 - Concluída a documentação dos principais conceitos técnicos utilizados no projeto
+
+## 09/10/2026
+
+### O que fiz? 🤔
+
+- Organizada a lista de livros lidos durante o 3.º trimestre de 2026
+- Adicionados os livros ao `books.csv` através da função `add_book()`, sem edição manual do CSV
+- Utilizada a adição de livros com dados reais para testar o funcionamento da função
