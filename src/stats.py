@@ -14,6 +14,48 @@ def show_statistics(books):
     return country_counts, latest_year
 
 
+def country_statistics(books, country):
+    country_books = books[books['country'] == country]
+
+    total_books = len(country_books)
+    books_by_year = country_books['year_read'].value_counts().sort_index()
+    average_rating = country_books['rating'].mean()
+    books_by_genre = country_books['genre'].value_counts()
+    books_by_language = country_books['reading_language'].value_counts()
+
+    return total_books, books_by_year, average_rating, books_by_genre, books_by_language
+
+
+def country_charts(books, country):
+    total_books, books_by_year, average_rating, books_by_genre, books_by_language = country_statistics(
+        books, country
+    )
+
+    fig_year = px.bar(
+        x=books_by_year.index,
+        y=books_by_year.values,
+        labels={
+            'x': 'Ano de Leitura',
+            'y': 'Número de Livros'
+        },
+        title=f"Livros lidos por ano - {country}"
+    )
+
+    fig_genre = px.pie(
+        names=books_by_genre.index,
+        values=books_by_genre.values,
+        title=f"Livros por género - {country}"
+    )
+
+    fig_language = px.pie(
+        names=books_by_language.index,
+        values=books_by_language.values,
+        title=f"Livros por idioma de leitura - {country}"
+    )
+
+    return fig_year, fig_genre, fig_language
+
+
 def data_exploration(books):
     # ==================================================
     # 2. EXPLORAÇÃO DOS DADOS

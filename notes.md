@@ -203,3 +203,20 @@ fig.show()
 `fig.show()` - mostra o gráfico
 
 
+## Terminal
+
+Comand: py -c "import pandas as pd; from src.stats import country_statistics; books = pd.read_csv('data/books.csv'); print(country_statistics(books, 'Portugal'))"
+
+(4, year_read
+2025    2
+2026    2
+Name: count, dtype: int64, np.float64(4.0), genre
+Classic, Dramatic(Theater)    2
+Poetry                        1
+Name: count, dtype: int64, reading_language
+PT/PT    4
+Name: count, dtype: int64)
+
+- `Name: count` - indica o nome da Series, neste caso `count`
+- `dtype: int64` - indica o tipo de dados dos valores, neste caso números inteiros de 64 bits
+- `np.float64(4.0)` - Rating médio, representado por um número decimal do NumPy
