@@ -407,3 +407,17 @@ Pandas
 - Organizada a lista de livros lidos durante o 3.º trimestre de 2026
 - Adicionados os livros ao `books.csv` através da função `add_book()`, sem edição manual do CSV
 - Utilizada a adição de livros com dados reais para testar o funcionamento da função
+
+## 13/10/2026
+
+### O que fiz? 🤔
+
+- Criada a função `country_statistics()` no `stats.py` para calcular estatísticas dos livros por país
+- Calculadas estatísticas relativas ao número de livros, distribuição por ano de leitura, rating médio, géneros e idiomas
+- Criada a função `country_charts()` para gerar gráficos de livros por ano, género e idioma
+- Testadas as funções com os dados de Portugal
+- Identificada uma questão de formatação no eixo dos anos do gráfico de barras, cuja correção ficou pendente para a próxima sessão
+
+## 14/10/2026
+
+### O que fiz? 🤔
