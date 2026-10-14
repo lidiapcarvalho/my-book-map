@@ -41,6 +41,14 @@ def country_charts(books, country):
         title=f"Livros lidos por ano - {country}"
     )
 
+    fig_year.update_layout(
+        xaxis=dict(
+            tickmode='array',
+            tickvals=books_by_year.index.tolist(),
+            ticktext=books_by_year.index.astype(str).tolist()
+        )
+    )
+
     fig_genre = px.pie(
         names=books_by_genre.index,
         values=books_by_genre.values,
