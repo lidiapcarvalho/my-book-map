@@ -421,3 +421,7 @@ Pandas
 ## 14/10/2026
 
 ### O que fiz? 🤔
+
+- Corrigida a formatação do eixo horizontal do gráfico de livros por ano, apresentando apenas os anos de leitura existentes
+- Testada a geração dos gráficos estatísticos por país
+- Contornada a dificuldade de visualização dos gráficos através da exportação para ficheiros HTML
